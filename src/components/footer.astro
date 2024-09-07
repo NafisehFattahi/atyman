@@ -1,0 +1,152 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const productNew: CollectionEntry<'productsNew'>[] = (await getCollection('productsNew'));
+
+const tags: string[] = productNew.flatMap((article: any) => article.data.tags);
+
+const uniqueTags: string[] = [...new Set(tags)];
+
+console.log(uniqueTags);
+
+---
+
+
+<footer>
+  <div class="container">
+    <div class="col1">
+      <h1 class="brand unselectable">آتے من</h1>
+      <h2 class="unselectable">ماشین‌آلات و خدمات</h2>
+    </div>
+    <div class="col2">
+      <h2 class="footer-bottom unselectable">امیر شمیرانی-09125450233</h2>
+    </div>
+    <div class="mt-10 unselectable tag-container">
+      <h3 class="text-xl font-semibold mb-4 brand">دسته بندی ها</h3>
+      <div class="text-white text-sm tags">
+        {uniqueTags.map(tag => (
+          <h2 class="mb-2">
+            <a href={'/products/tag/' + tag}>{tag}</a>  
+          </h2>
+        ))}
+      </div>
+    </div>
+
+</footer>
+
+
+<style>
+.tag-container{
+  width: 90%;
+  margin: 20px auto;
+  margin-bottom: 0px;
+  justify-content: space-around;
+  text-align: center;
+}
+.tags{
+  display: grid;
+  grid-template-columns: repeat(12, .5fr);
+  margin: 20px auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+ .col1 {
+  padding-top: 20px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+ }
+ .col2 {
+  padding-top: 20px;
+  margin-bottom: 70px;
+  padding: 0;
+  margin: 0;
+ }
+/* .chosen {
+  padding: 20px;
+} */
+.container {
+  margin: 0 auto;
+  padding-bottom: 5px;
+  display: flex;
+  gap: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+.unselectable {
+  user-select: none;
+}
+.chosen{
+  margin-top: 0px;
+  padding: 0;
+}
+/* h1 {
+  color: #fff;
+  text-align: center;
+  margin: .5em 0;
+  font-size: 3em;
+} */
+footer {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background: #121315;
+}
+.brand {
+  display: block;
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-bottom: .2em;
+  text-shadow: 1px 5px 18px #0077ff;
+}
+footer p {
+  color: #fff;
+  max-width: 25em;
+  font-size: 0.9em;
+  line-height: 23px;
+}
+footer h2 {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  }
+  .col1{
+    padding: 10px;
+    margin: 5px;
+  }
+  .tag-container{
+  width: 40%;
+  margin: 20px auto;
+  justify-content: space-around;
+  }
+  .tags{
+    display: grid;
+    gap: 3px;
+    grid-template-columns: repeat(6, 1fr);
+    margin: 20px auto;
+    justify-content: space-around;
+  }
+}
+@media (max-width: 700px) {
+  .tag-container{
+  width: 90%;
+  margin: 20px auto;
+  justify-content: space-around;
+}
+.tags{
+  display: grid;
+  gap: 3px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 20px auto;
+  justify-content: space-around;
+}
+}
+</style>

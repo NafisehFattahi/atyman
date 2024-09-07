@@ -1,0 +1,137 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
+
+const productNew: CollectionEntry<'productsNew'>[] = (await getCollection('productsNew'));
+
+
+const { paths } = Astro.props;
+
+interface Props {
+  paths: string[];
+}
+
+
+
+---
+<div class="col-left box">
+  <div class="container unselectable">
+    <div class="main-img">
+      <img
+          src={paths[0]}
+          alt="Product Image"
+          id="current"
+          class="current"
+        />
+    </div>
+    <div class="imgs unselectable">
+      {paths.map((path:string, index:number) => (
+        <img
+          src={path}
+          alt="Product Thumbnail Image"
+          data-index={index}
+          class="box"
+        />
+      ))}
+    </div>
+  </div>
+</div>
+  
+
+<style>
+  .unselectable {
+  user-select: none;
+}
+.col-left {
+  flex: 1;
+  margin: 10px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+.box {
+  background: rgba(0,99,255,0.3);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0,99,255,0.15);
+}
+
+.container {
+  /* max-width: 760px; */
+  width: 90%;
+  /* height: 90%; */
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  /* border: #0dff2d solid 3px; */
+}
+
+.main-img img {
+  width: 100%;
+  padding: 5px;
+}
+.imgs img {
+  width: 100%;
+  /* height: 128px; */
+}
+
+.imgs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  padding: 5px;
+}
+
+.imgs img {
+  cursor: pointer;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn var(--fade-time) ease-in 1 forwards;
+}
+
+/* Media Queries */
+@media(max-width: 600px) {
+  .imgs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>
+
+<script>
+console.log("hiiii")
+
+const current = document.querySelector('#current');
+const imgs = document.querySelector('.imgs');
+const img = document.querySelectorAll('.imgs img');
+const opacity = 0.6;
+
+// img[0].style.opacity = opacity;
+
+console.log(current)
+console.log("hiiii")
+console.log(current.src)
+
+imgs.addEventListener('click', imgClick);
+
+function imgClick(e) {
+
+  // Change current image to src of clicked image
+  current.src = e.target.src;
+
+  current.classList.add('fade-in');
+
+  // Remove fade-in class after .5 seconds
+  setTimeout(() => current.classList.remove('fade-in'), 150);
+
+  // Change the opacity to opacity var
+  e.target.style.opacity = opacity;
+}
+</script>

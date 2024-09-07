@@ -1,0 +1,21 @@
+---
+
+const { tags } = Astro.props;
+
+interface Props {
+  tags: string[];
+}
+---
+
+<div class="flex justify-center mx-4 mt-2 tags">
+  {tags.map((tag:string, index:number) => (
+    <span class={index % 2 === 0? "px-1 py-1 m-1 mb-2 bg-green-500 text-white rounded-full text-xs hover:opacity-90 text-center" : "px-1 py-1 m-1 mb-2 bg-indigo-500 text-white rounded-full text-xs hover:opacity-90 text-center"}>
+    <a href={'/products/tag/' + tag}>{tag}</a></span>
+  ))}
+ </div>
+
+ <style>
+  .tags a{
+  margin: 10px;
+}
+ </style>

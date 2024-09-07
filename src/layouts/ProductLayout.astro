@@ -1,0 +1,112 @@
+---
+import Navbar2 from "../components/navbar2.astro"
+import Footer from "../components/footer.astro"
+import { Image } from "astro:assets";
+import logo from "../images/logo.png";
+import { SITE_TITLE, SITE_DESCRIPTION} from '../constants';
+
+
+export interface Props {
+  title: string;
+  description:string;
+}
+
+
+const { title } = Astro.props;
+const { description } = Astro.props;
+---
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-ui.js" is:inline></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@800&display=swap" rel="stylesheet">
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar2 />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-brand: #0700EB;
+    --color-bg: #fefbfd;
+    --color-bg-muted: #f3e8f0
+    --color-heading: #030137;
+    --color-text: #35345a;
+    --color-text-muted: #4c4c61;
+
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    color: var(--color-text);
+    font-size: 18px;
+    line-height: 1.45;
+    
+  }
+
+  body {
+    background: var(--color-bg);
+    height: 100%;
+    margin: 0;
+  }
+
+  footer {
+    background: var(--color-bg-muted);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    padding: 1rem min(2rem, 5vm);
+    /* margin-top: 250px; */
+    text-align: center;
+
+    & a {
+      color: inherit;
+      text-decoration: none;
+
+      &:is(:hover, :focused) {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .footer-ul {
+    color: var(--color-text-muted);
+  }
+
+
+@media (max-width: 1200px) {
+  footer{
+    margin-top: 300px;
+}
+}
+
+@media (max-width: 550px) {
+  footer{
+    margin-top: 500px;
+    padding-top: 500px;
+}
+}
+</style>
+
+
