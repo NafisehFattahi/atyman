@@ -5,6 +5,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
+  // site: "https://atyman.com",
   integrations: [tailwind()],
   output: "server",
   adapter: node({
