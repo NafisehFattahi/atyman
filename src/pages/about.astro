@@ -3,6 +3,9 @@ import MainLayout from "../layouts/MainLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION} from '../constants';
 ---
 <style>
+  .about-title{
+    margin-top: 100px;
+  }
   .number {
       margin: 0 auto;
       text-align: center;
@@ -14,16 +17,14 @@ import { SITE_TITLE, SITE_DESCRIPTION} from '../constants';
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 250px;
+    height: 300px;
   }
       .logo {
     width: 300px;
     height: 300px;
-    display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 25%;
+    top: 40%;
   }
   
       .about-conatiner{
@@ -35,7 +36,7 @@ import { SITE_TITLE, SITE_DESCRIPTION} from '../constants';
           text-align: center;
           justify-content: center;
           align-items: center;
-          margin: 70px auto;
+          margin: 10px auto;
       }
   
       h1 {
@@ -138,6 +139,15 @@ import { SITE_TITLE, SITE_DESCRIPTION} from '../constants';
           /*=============== BREAKPOINTS ===============*/
           /* For small devices */
   @media (max-width: 900px) {
+    .img-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10px;
+  }
+    .about-title{
+      margin-top: 410px;
+    }
     .content {
       font-size: 2rem;
       top: 39%;
@@ -147,13 +157,14 @@ import { SITE_TITLE, SITE_DESCRIPTION} from '../constants';
       width: 250px;
       height: 250px;
     }
-    .img-div .logo{
+    .logo{
       margin: 20px;
       justify-content: center;
       position: absolute;
-      top: 32%;
+      top: 23%;
       /* left: 20%; */
     }
+    
     form {
       top: 65%;
       width: 75%;
@@ -183,6 +194,15 @@ import { SITE_TITLE, SITE_DESCRIPTION} from '../constants';
   }
   
   @media (max-width: 300px) {
+    .img-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10px;
+  }
+    .about-title{
+      margin-top: 200px;
+    }
     .content {
       font-size: 2rem;
       top: 28%;
@@ -234,10 +254,12 @@ import { SITE_TITLE, SITE_DESCRIPTION} from '../constants';
 
 <MainLayout title="درباره آتی من" description={SITE_DESCRIPTION}>
 <div class="about-conatiner">
-    <h1 class="text-4xl font-bold mb-5">درباره آتی من</h1>
     <div class="about">
-        <div class="img-div unselectable">
-            <img class="logo" src="/images/logo.png" alt="" width={400} height={400}></img>
+        <div class="top">
+          <h1 class="text-4xl font-bold mb-5 unselectable about-title">درباره آتی من</h1>
+          <div class="img-div unselectable">
+              <img class="logo" src="/images/logo.png" alt="" width={400} height={400}></img>
+          </div>
         </div>
         <!-- <div class="md:w-1/2 mb-8 md:mb-0">
             <img src="../../../src/images/logo.png" alt="آتی من" class="w-full h-auto rounded-lg shadow-lg"/>
