@@ -5,6 +5,16 @@ import error from "../images/404.png";
 import { SITE_TITLE, SITE_DESCRIPTION} from '../constants';
 
 ---
+<style>
+  .unselectable {
+  			user-select: none;
+			}
+  .p404{
+    height: 100vh;
+  }
+</style>
+
+
 
 <MainLayout title="404 - صفحه موردنظر پیدا نشد" description={SITE_DESCRIPTION}>
   <div class="p404 unselectable flex flex-col items-center justify-items-center gap-7">
@@ -20,12 +30,3 @@ import { SITE_TITLE, SITE_DESCRIPTION} from '../constants';
   </div>
 </MainLayout>
 
-
-<style>
-  .unselectable {
-  			user-select: none;
-			}
-  .p404{
-    height: 100vh;
-  }
-</style>

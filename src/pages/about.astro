@@ -2,6 +2,234 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION} from '../constants';
 ---
+<style>
+  .number {
+      margin: 0 auto;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+  }
+  
+      .img-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+  }
+      .logo {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 25%;
+  }
+  
+      .about-conatiner{
+          height: 100vh;
+      }
+  
+      .about{
+          width: 70%;
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+          margin: 70px auto;
+      }
+  
+      h1 {
+        font-size:55px;
+        font-weight: 500;
+        color: rgb(0, 0, 0);  
+        padding-top: 15px;
+        margin-top: 30px;
+        margin-bottom: 64px;
+        text-align: center;
+        text-shadow: 1px 5px 18px #0077ff;
+      }
+      h2 {
+        font-size:35px;
+        font-weight: 500;
+        color: rgb(0, 0, 0);  
+        padding-top: 15px;
+        margin-top: 10px;
+        text-align: center;
+        text-shadow: 1px 5px 18px #70b3ff;
+        text-align: center;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+      }
+      h3 {
+        font-size:25px;
+        font-weight: 500;
+        color: rgb(0, 0, 0);  
+        padding-top: 15px;
+        margin-top: 10px;
+        text-align: center;
+        line-height: 40px;
+        text-shadow: 1px 5px 18px #afd4ff;
+      }
+      h4 {
+        font-size:25px;
+        font-weight: 500;
+        color: rgb(0, 0, 0);  
+        padding-top: 15px;
+        margin-top: 10px;
+        text-align: center;
+        line-height: 40px;
+        text-shadow: 1px 5px 18px #0077ff;
+      }
+      
+      
+          :root {
+              /*========== Colors ==========*/
+              /*Color mode HSL(hue, saturation, lightness)*/
+              --white-color: #fff;
+              --black-color: hsl(210, 12%, 15%);
+              --body-color: hsl(210, 16%, 12%);
+              --container-color: hsl(210, 24%, 8%);
+              /*========== Font and typography ==========*/
+              /*.5rem = 8px | 1rem = 16px ...*/
+              --body-font: "Poppins", sans-serif;
+              --h2-font-size: 1.25rem;
+              --normal-font-size: .938rem;
+          }
+          @media screen and (min-width: 1024px) {
+              :root {
+                  --h2-font-size: 1.5rem;
+                  --normal-font-size: 1rem;
+              }
+          }
+      
+          a {
+          text-decoration: none;
+          }
+      
+          .unselectable {
+              user-select: none;
+          }
+          .box, .inner {
+              /* border: 2px solid red; */
+          }
+          .box {
+              width: 75%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: 0 auto;
+          }
+      
+      
+          .container {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              margin: 0 auto;
+              /* border: 2px solid red; */
+              place-items: center;
+              margin-inline: 1.5rem;
+      
+          }
+      
+      
+          /*=============== BREAKPOINTS ===============*/
+          /* For small devices */
+  @media (max-width: 900px) {
+    .content {
+      font-size: 2rem;
+      top: 39%;
+      left: 55&
+    }
+    .logo {
+      width: 250px;
+      height: 250px;
+    }
+    .img-div .logo{
+      margin: 20px;
+      justify-content: center;
+      position: absolute;
+      top: 32%;
+      /* left: 20%; */
+    }
+    form {
+      top: 65%;
+      width: 75%;
+    }
+    .item {
+    width: 180px;
+    height: 100px;
+    background: rgba(255, 255, 255, .1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0);
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 6px;
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    line-height: 100px;
+    position: absolute;
+    left: max(calc(180px * 8), 100%);
+    animation-name: scrollLeft;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  .about-conatiner{
+          height: 100vh;
+          margin-bottom: 700px;
+      }
+  }
+  
+  @media (max-width: 300px) {
+    .content {
+      font-size: 2rem;
+      top: 28%;
+      left: 55&
+    }
+    .logo {
+      width: 150px;
+      height: 150px;
+      top: 28%;
+      justify-content: center;
+      align-items: center;
+    }
+    .img-div {
+      justify-content: center;
+      position: absolute;
+      top: -3%;
+    }
+    form {
+      top: 20%;
+      width: 75%;
+    }
+    .item {
+    width: 180px;
+    height: 100px;
+    background: rgba(255, 255, 255, .1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0);
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 6px;
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    line-height: 100px;
+    position: absolute;
+    left: max(calc(180px * 8), 100%);
+    animation-name: scrollLeft;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  .about-conatiner{
+          height: 100vh;
+          margin-bottom: 700px;
+      }
+  }
+      </style>
+
+
 
 
 <MainLayout title="درباره آتی من" description={SITE_DESCRIPTION}>
@@ -39,229 +267,3 @@ import { SITE_TITLE, SITE_DESCRIPTION} from '../constants';
 
 
 
-<style>
-.number {
-    margin: 0 auto;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
-
-    .img-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 250px;
-}
-    .logo {
-  width: 300px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 25%;
-}
-
-    .about-conatiner{
-        height: 100vh;
-    }
-
-    .about{
-        width: 70%;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        margin: 70px auto;
-    }
-
-    h1 {
-      font-size:55px;
-      font-weight: 500;
-      color: rgb(0, 0, 0);  
-      padding-top: 15px;
-      margin-top: 30px;
-      margin-bottom: 64px;
-      text-align: center;
-      text-shadow: 1px 5px 18px #0077ff;
-    }
-    h2 {
-      font-size:35px;
-      font-weight: 500;
-      color: rgb(0, 0, 0);  
-      padding-top: 15px;
-      margin-top: 10px;
-      text-align: center;
-      text-shadow: 1px 5px 18px #70b3ff;
-      text-align: center;
-      margin: 0 auto;
-      justify-content: center;
-      align-items: center;
-    }
-    h3 {
-      font-size:25px;
-      font-weight: 500;
-      color: rgb(0, 0, 0);  
-      padding-top: 15px;
-      margin-top: 10px;
-      text-align: center;
-      line-height: 40px;
-      text-shadow: 1px 5px 18px #afd4ff;
-    }
-    h4 {
-      font-size:25px;
-      font-weight: 500;
-      color: rgb(0, 0, 0);  
-      padding-top: 15px;
-      margin-top: 10px;
-      text-align: center;
-      line-height: 40px;
-      text-shadow: 1px 5px 18px #0077ff;
-    }
-    
-    
-        :root {
-            /*========== Colors ==========*/
-            /*Color mode HSL(hue, saturation, lightness)*/
-            --white-color: #fff;
-            --black-color: hsl(210, 12%, 15%);
-            --body-color: hsl(210, 16%, 12%);
-            --container-color: hsl(210, 24%, 8%);
-            /*========== Font and typography ==========*/
-            /*.5rem = 8px | 1rem = 16px ...*/
-            --body-font: "Poppins", sans-serif;
-            --h2-font-size: 1.25rem;
-            --normal-font-size: .938rem;
-        }
-        @media screen and (min-width: 1024px) {
-            :root {
-                --h2-font-size: 1.5rem;
-                --normal-font-size: 1rem;
-            }
-        }
-    
-        a {
-        text-decoration: none;
-        }
-    
-        .unselectable {
-            user-select: none;
-        }
-        .box, .inner {
-            /* border: 2px solid red; */
-        }
-        .box {
-            width: 75%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-        }
-    
-    
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0 auto;
-            /* border: 2px solid red; */
-            place-items: center;
-            margin-inline: 1.5rem;
-    
-        }
-    
-    
-        /*=============== BREAKPOINTS ===============*/
-        /* For small devices */
-@media (max-width: 900px) {
-  .content {
-    font-size: 2rem;
-    top: 39%;
-    left: 55&
-  }
-  .logo {
-    width: 250px;
-    height: 250px;
-  }
-  .img-div .logo{
-    margin: 20px;
-    justify-content: center;
-    position: absolute;
-    top: 32%;
-    /* left: 20%; */
-  }
-  form {
-    top: 65%;
-    width: 75%;
-  }
-  .item {
-  width: 180px;
-  height: 100px;
-  background: rgba(255, 255, 255, .1);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0);
-  border: 2px solid rgba(255, 255, 255, .5);
-  border-radius: 6px;
-  color: white;
-  font-size: 23px;
-  text-align: center;
-  line-height: 100px;
-  position: absolute;
-  left: max(calc(180px * 8), 100%);
-  animation-name: scrollLeft;
-  animation-duration: 30s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-.about-conatiner{
-        height: 100vh;
-        margin-bottom: 700px;
-    }
-}
-
-@media (max-width: 300px) {
-  .content {
-    font-size: 2rem;
-    top: 28%;
-    left: 55&
-  }
-  .logo {
-    width: 150px;
-    height: 150px;
-    top: 28%;
-    justify-content: center;
-    align-items: center;
-  }
-  .img-div {
-    justify-content: center;
-    position: absolute;
-    top: -3%;
-  }
-  form {
-    top: 20%;
-    width: 75%;
-  }
-  .item {
-  width: 180px;
-  height: 100px;
-  background: rgba(255, 255, 255, .1);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0);
-  border: 2px solid rgba(255, 255, 255, .5);
-  border-radius: 6px;
-  color: white;
-  font-size: 23px;
-  text-align: center;
-  line-height: 100px;
-  position: absolute;
-  left: max(calc(180px * 8), 100%);
-  animation-name: scrollLeft;
-  animation-duration: 30s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-.about-conatiner{
-        height: 100vh;
-        margin-bottom: 700px;
-    }
-}
-    </style>
