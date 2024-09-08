@@ -11,6 +11,123 @@ const uniqueTags: string[] = [...new Set(tags)];
 console.log(uniqueTags);
 
 ---
+<style>
+  .tag-container{
+    width: 90%;
+    margin: 20px auto;
+    margin-bottom: 0px;
+    justify-content: space-around;
+    text-align: center;
+  }
+  .tags{
+    display: grid;
+    grid-template-columns: repeat(12, .5fr);
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+   .col1 {
+    padding-top: 20px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+   }
+   .col2 {
+    padding-top: 20px;
+    margin-bottom: 70px;
+    padding: 0;
+    margin: 0;
+   }
+  /* .chosen {
+    padding: 20px;
+  } */
+  .container {
+    margin: 0 auto;
+    padding-bottom: 5px;
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .unselectable {
+    user-select: none;
+  }
+  .chosen{
+    margin-top: 0px;
+    padding: 0;
+  }
+  /* h1 {
+    color: #fff;
+    text-align: center;
+    margin: .5em 0;
+    font-size: 3em;
+  } */
+  footer {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background: #121315;
+  }
+  .brand {
+    display: block;
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: .2em;
+    text-shadow: 1px 5px 18px #0077ff;
+  }
+  footer p {
+    color: #fff;
+    max-width: 25em;
+    font-size: 0.9em;
+    line-height: 23px;
+  }
+  footer h2 {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  @media (max-width: 900px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+    justify-content: center;
+    }
+    .col1{
+      padding: 10px;
+      margin: 5px;
+    }
+    .tag-container{
+    width: 40%;
+    margin: 20px auto;
+    justify-content: space-around;
+    }
+    .tags{
+      display: grid;
+      gap: 3px;
+      grid-template-columns: repeat(6, 1fr);
+      margin: 20px auto;
+      justify-content: space-around;
+    }
+  }
+  @media (max-width: 700px) {
+    .tag-container{
+    width: 90%;
+    margin: 20px auto;
+    justify-content: space-around;
+  }
+  .tags{
+    display: grid;
+    gap: 3px;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 20px auto;
+    justify-content: space-around;
+  }
+  }
+  </style>
+
+
+
 
 
 <footer>
@@ -36,117 +153,3 @@ console.log(uniqueTags);
 </footer>
 
 
-<style>
-.tag-container{
-  width: 90%;
-  margin: 20px auto;
-  margin-bottom: 0px;
-  justify-content: space-around;
-  text-align: center;
-}
-.tags{
-  display: grid;
-  grid-template-columns: repeat(12, .5fr);
-  margin: 20px auto;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
- .col1 {
-  padding-top: 20px;
-  padding-bottom: 0;
-  margin-bottom: 0;
- }
- .col2 {
-  padding-top: 20px;
-  margin-bottom: 70px;
-  padding: 0;
-  margin: 0;
- }
-/* .chosen {
-  padding: 20px;
-} */
-.container {
-  margin: 0 auto;
-  padding-bottom: 5px;
-  display: flex;
-  gap: 0;
-  flex-direction: column;
-  justify-content: center;
-}
-.unselectable {
-  user-select: none;
-}
-.chosen{
-  margin-top: 0px;
-  padding: 0;
-}
-/* h1 {
-  color: #fff;
-  text-align: center;
-  margin: .5em 0;
-  font-size: 3em;
-} */
-footer {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  background: #121315;
-}
-.brand {
-  display: block;
-  font-size: 1.8em;
-  font-weight: 600;
-  margin-bottom: .2em;
-  text-shadow: 1px 5px 18px #0077ff;
-}
-footer p {
-  color: #fff;
-  max-width: 25em;
-  font-size: 0.9em;
-  line-height: 23px;
-}
-footer h2 {
-  color: #fff;
-  text-decoration: none;
-}
-
-@media (max-width: 900px) {
-  .container {
-    display: flex;
-    flex-direction: column;
-  justify-content: center;
-  }
-  .col1{
-    padding: 10px;
-    margin: 5px;
-  }
-  .tag-container{
-  width: 40%;
-  margin: 20px auto;
-  justify-content: space-around;
-  }
-  .tags{
-    display: grid;
-    gap: 3px;
-    grid-template-columns: repeat(6, 1fr);
-    margin: 20px auto;
-    justify-content: space-around;
-  }
-}
-@media (max-width: 700px) {
-  .tag-container{
-  width: 90%;
-  margin: 20px auto;
-  justify-content: space-around;
-}
-.tags{
-  display: grid;
-  gap: 3px;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 20px auto;
-  justify-content: space-around;
-}
-}
-</style>

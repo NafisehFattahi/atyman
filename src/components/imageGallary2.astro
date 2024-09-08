@@ -14,31 +14,6 @@ interface Props {
 
 
 ---
-<div class="col-left box">
-  <div class="container unselectable">
-    <div class="main-img">
-      <img
-          src={paths[0]}
-          alt="Product Image"
-          id="current"
-          class="current"
-        />
-        
-    </div>
-    <div class="imgs unselectable">
-      {paths.map((path:string, index:number) => (
-        <img
-          src={path}
-          alt="Product Thumbnail Image"
-          data-index={index}
-          class="box"
-        />
-      ))}
-    </div>
-  </div>
-</div>
-  
-
 <style>
   .unselectable {
   user-select: none;
@@ -105,6 +80,36 @@ interface Props {
   }
 }
 </style>
+
+
+
+
+<div class="col-left box">
+  <div class="container unselectable">
+    <div class="main-img">
+      <img
+          src={paths[0]}
+          alt="Product Image"
+          id="current"
+          class="current"
+        />
+        
+    </div>
+    <div class="imgs unselectable">
+      {paths.map((path:string, index:number) => (
+        <img
+          src={path}
+          alt="Product Thumbnail Image"
+          data-index={index}
+          class="box"
+        />
+      ))}
+    </div>
+  </div>
+</div>
+  
+
+
 
 <script>
 console.log("hiiii")

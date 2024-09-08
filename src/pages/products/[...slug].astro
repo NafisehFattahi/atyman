@@ -11,57 +11,6 @@ const { slug } = Astro.params;
 const entry = await getEntry('productsNew', slug);
 
 ---
-
-
-<ProductLayout title={entry.data.title} description={entry.data.title}>
-  
-  <div class="container1">
-    <div class="productName unselectable"><h1>{entry.data.title}<h1/></div>
-    <section>
-      <ImageGallary2 paths={entry.data.image}/>
-      <div class="col-right">
-        <!-- {entry.data.video.map((path:string, index:number) => (
-          <div class="up box" id="up">
-          <div>
-            <p class="title unselectable">{entry.data.videodescription[index]}</p>
-          </div>
-        
-        <Player2 videoPaths={entry.data.video}/>
-        </div>
-        ))} -->
-        <!-- <div class="up box" id="up">
-          <div>
-            <p class="title unselectable">{entry.data.videodescription}</p>
-          </div>
-        
-        <Player videoPath={entry.data.video}/>
-        </div> -->
-        <Player videoPath={entry.data.video} videoDescription={entry.data.videodescription}/>
-        <div class="info box" >
-          <h2 class="unselectable white">
-            :مشخصات
-          </h2>
-          <div class="flex justify-end mx-3 mt-2 tags">
-            {entry.data.tags.map((tag:string, index:number) => (
-              <span class={index % 2 === 0? "px-1 py-1 m-1 mb-2 bg-green-500 text-white rounded-full text-xs hover:opacity-90 text-center" : "px-1 py-1 m-1 mb-2 bg-indigo-500 text-white rounded-full text-xs hover:opacity-90 text-center"}>
-              <a href={'/products/tag/' + tag}>{tag}</a>
-              </span>
-            ))}
-           </div>
-          <ul class="unselectable list description">
-            <li class="list-item">
-              {entry.data.description}
-            </li>
-            <li class=" blue">
-              جهت استعلام قیمت و موجودی با شماره 09125450233 تماس حاصل فرمایید
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </div>
-</ProductLayout>
-
 <style>
   :root {
   --main-radius: 5px;
@@ -246,3 +195,59 @@ a {
 
 
 </style>
+
+
+
+
+
+
+
+<ProductLayout title={entry.data.title} description={entry.data.title}>
+  
+  <div class="container1">
+    <div class="productName unselectable"><h1>{entry.data.title}<h1/></div>
+    <section>
+      <ImageGallary2 paths={entry.data.image}/>
+      <div class="col-right">
+        <!-- {entry.data.video.map((path:string, index:number) => (
+          <div class="up box" id="up">
+          <div>
+            <p class="title unselectable">{entry.data.videodescription[index]}</p>
+          </div>
+        
+        <Player2 videoPaths={entry.data.video}/>
+        </div>
+        ))} -->
+        <!-- <div class="up box" id="up">
+          <div>
+            <p class="title unselectable">{entry.data.videodescription}</p>
+          </div>
+        
+        <Player videoPath={entry.data.video}/>
+        </div> -->
+        <Player videoPath={entry.data.video} videoDescription={entry.data.videodescription}/>
+        <div class="info box" >
+          <h2 class="unselectable white">
+            :مشخصات
+          </h2>
+          <div class="flex justify-end mx-3 mt-2 tags">
+            {entry.data.tags.map((tag:string, index:number) => (
+              <span class={index % 2 === 0? "px-1 py-1 m-1 mb-2 bg-green-500 text-white rounded-full text-xs hover:opacity-90 text-center" : "px-1 py-1 m-1 mb-2 bg-indigo-500 text-white rounded-full text-xs hover:opacity-90 text-center"}>
+              <a href={'/products/tag/' + tag}>{tag}</a>
+              </span>
+            ))}
+           </div>
+          <ul class="unselectable list description">
+            <li class="list-item">
+              {entry.data.description}
+            </li>
+            <li class=" blue">
+              جهت استعلام قیمت و موجودی با شماره 09125450233 تماس حاصل فرمایید
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</ProductLayout>
+
