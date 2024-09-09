@@ -7,6 +7,7 @@ const app = express();
 const base = "/";
 app.use(base, express.static("dist/client/"));
 app.use("/products/", express.static("dist/client/"));
+app.use("/products/tag/", express.static("dist/client/"));
 app.use(ssrHandler);
 
 app.listen(3000); // this should be the same port that is being reverse proxied indicated in the nginx config file
